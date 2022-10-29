@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Henny+Penny">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pattaya">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Mardi gras</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #0d0d0d;
+        }
+
+        .topNav {
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(140, 191, 63, 1) 100%);
+            height: 180px;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+            font-family: 'henny penny';
+
+        }
+
+        .topNav nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15%;
+            line-height: 75px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .topNav img {
+            top: 0;
+            width: 150px;
+            height: 100px;
+            left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        .topNav nav .navbar-brand {
+            color: white;
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: .5px;
+
+        }
+
+        .topNav nav .nav-list .nav-item {
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 0px;
+            transition: .4s;
+            margin: 5px 15px;
+        }
+
+        .topNav nav .nav-list {
+            display: flex;
+            top: 300px;
+        }
+
+        .topNav nav .nav-list .nav-link {
+            color: aliceblue;
+            font-size: 18px;
+            font-weight: 500;
+            color: #0d0d0d;
+
+        }
+
+        @media(max-width: 935px) {
+            .topNav nav {
+                padding: 0 2rem;
+            }
+
+            .topNav nav .nav-list .nav-item {
+                padding: 0 20px;
+            }
+        }
+
+        @media(max-width:675px) {
+            carousel-inner{
+                display: none;
+                        }
+            .topNav nav .nav-list {
+                display: grid;
+                position: absolute;
+                background: #0d0d0d;
+                width: 100%;
+                top: 170px;
+                left: 0;
+                z-index: -1;
+                transition: .6s;
+            }
+
+            .topNav nav .nav-list .nav-item {
+                padding-left: 35px;
+            }
+
+            .topNav nav .navbar-toggler {
+                display: grid !important;
+                margin-right: auto;
+                margin-left: auto;
+                display: flex;justify-content: center;align-items: center;
+            }
+        }
+
+
+        .topNav nav .navbar-toggler {
+            display: none;
+            height: min-content;
+            margin: 18px -10px 0 0;
+            cursor: pointer;
+        }
+
+        .topNav nav .navbar-toggler .bar {
+            width: 40px;
+            height: 5px;
+            margin-bottom: 10px;
+            background: #ffffff;
+            border-radius: 10%;
+            transition: .4s;
+        }
+
+        input {
+            display: none;
+        }
+
+        input:checked~.topNav nav .nav-list {
+            transform: translateY(0);
+            display: none;
+
+        }
+
+        input:checked~.topNav nav .navbar-toggler {
+            margin-top: 35px;
+        }
+
+        input:checked~.topNav nav .navbar-toggler .bar:nth-child(1) {
+            position: absolute;
+            transform: rotate(45deg);
+        }
+
+        input:checked~.topNav nav .navbar-toggler .bar:nth-child(2) {
+            display: none;
+        }
+
+        input:checked~.topNav nav .navbar-toggler .bar:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .topNav .nav-list .nav-item #active1 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #9453A6;
+        }
+
+        .topNav .nav-list .nav-item #active2 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #8CBF3F;
+        }
+
+        .topNav .nav-list .nav-item #active3 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #F2CC0F;
+        }
+
+        .topNav .nav-list .nav-item #active4 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #8CBF3F;
+        }
+
+        .topNav .nav-list .nav-item #active5 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #9453A6;
+        }
+
+        /**********************************/
+        .item img {
+            width: 2000px;
+
+        }
+
+        .item {
+            width: 100%;
+            height: 800px;
+        }
+
+        #myCarousel {
+            margin-top: 158px;
+        }
+
+        h2 {
+            font-family: 'Henny Penny';
+            color: #8CBF3F;
+            font-weight: bold;
+            text-shadow: 2px 3px 5px #F2CC0F;
+        }
+
+        p {
+            color: #f2f2f2;
+        }
+
+        .box1 {
+            margin-left: 30px;
+            text-align: left;
+            line-height: 30px;
+        }
+
+        .box1 img {
+            float: right;
+            margin-left: 20px;
+            width: 300px;
+            height: 250px;
+            margin-right: 40px;
+            border: 2px solid #0d0d0d;
+            box-shadow: #0d0d0d;
+            -moz-box-shadow: 0px 6px 5px #ccc;
+            -webkit-box-shadow: 0px 6px 5px #ccc;
+            box-shadow: 0px 6px 5px #ccc;
+            -moz-border-radius: 190px;
+            border-radius: 10px;
+        }
+
+        .box2 {
+            margin-left: 30px;
+            text-align: left;
+            line-height: 30px;
+
+        }
+
+        #button {
+            border: 2px solid #0d0d0d;
+            padding: 5px;
+            margin-left: 50px;
+            top: 20px;
+            border-radius: 10px;
+            background-image: linear-gradient(0deg, rgba(140, 191, 63, 1) 5%, rgba(13, 13, 13, 1) 100%);
+            color: linear-gradient(0deg, rgba(140, 191, 63, 1) 5%, rgba(13, 13, 13, 1) 100%);
+            font-family: 'Henny Penny';
+            text-decoration: none;
+
+        }
+
+        #button:hover {
+            color: #F2CC0F;
+        }
+
+        .bigImage {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* This style for the cards */
+        .sponsor {
+            font-size: 400px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+            width: 270px;
+            height: 250px;
+        }
+
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: #8CBF3F;
+            background-color: #0d0d0d;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 20px;
+            font-family: 'Henny Penny';
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+
+        button:hover,
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: #8CBF3F;
+            background-color: #0d0d0d;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 20px;
+            font-family: 'Henny Penny';
+        }
+
+        .button:hover {
+            opacity: 0.7;
+            text-decoration: none;
+            color: white;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+            justify-content: center;
+        }
+
+        footer {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(140, 191, 63, 1) 100%);
+            height: 100px;
+            width: 100%;
+            padding-top: 10px;
+            color: #0d0d0d;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #0d0d0d;
+        }
+
+        .socials a i {
+            font-size: 1.7rem;
+            border: none;
+
+        }
+
+        .socials a:hover i {
+            color: #F2CC0F;
+        }
+
+        .socials li a i {
+            border: none;
+        }
+
+        .socials h1 {
+            font-size: 15px;
+            font-family: 'henny penny';
+            font-weight: bold;
+        }
+
+        .imgCard{
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <input type="checkbox" id="toggle">
+    <div class="topNav">
+        <img src="logo.png" alt="logo">
+        <nav>
+
+            <label class="navbar-toggler" for="toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" id="active1" href="project1.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="active2" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="active3" href="media.html">Media</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="active4" href="FQA.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="active5" href="contact.html">Contact</a>
+                </li>
+    </div>
+
+
+    </ul>
+    </nav>
+    <br><br><br><br><br><br><br><br><br>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="img1.jpg" alt="Chania">
+            <div class="carousel-caption">
+                <h3>New Orleans</h3>
+                <p>The Festival is coming.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img2.jpg" alt="Chicago">
+            <div class="carousel-caption">
+                <h3>The Beggining</h3>
+                <p>It's time to celebrate!</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img3.jpg" alt="New York">
+            <div class="carousel-caption">
+                <h3>Fat Tuesday Is Coming...</h3>
+                <p>Here's How to Celebrate Mardi Gras at Home!</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img4.jpg" alt="New York">
+            <div class="carousel-caption">
+                <h3>Yayy..</h3>
+                <p>So much fun to get out of the routine!</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="img5.jpg" alt="New York">
+            <div class="carousel-caption">
+                <h3></h3>
+                <p>what's the time now??..</p>
+            </div>
+        </div>
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+    <br><br>
+
+    <section>
+        <br>
+        <div class="box1">
+            <h2>Traditions</h2>
+            <img src="img7.jpg" alt="">
+            <br>
+
+            <p>
+                The festival season varies from city to city, as some traditions, such as the one in New Orleans,
+                Louisiana, consider
+                Mardi Gras to stretch the entire period from Twelfth Night (the last night of Christmas which begins
+                Epiphany) to Ash
+                Wednesday. Others treat the final three-day period before Ash Wednesday as the Mardi Gras. In Mobile,
+                Alabama,
+                Mardi Gras–associated social events begin in November, followed by mystic society balls on Thanksgiving,
+                then New
+                Year's Eve, followed by parades and balls in January and February, celebrating up to midnight before Ash
+                Wednesday. In
+                earlier times, parades were held on New Year's Day. Carnival is an important celebration in Anglican and
+                Catholic
+                European nations.</p>
+        </div>
+        <br>
+
+        <div class="box2">
+            <h2>Days leading up to Mardi Gras Day</h2>
+            <br>
+            <p>
+                The population of New Orleans more than doubles during the five days before Mardi Gras Day, in
+                anticipation of the
+                biggest celebration.<br>
+                Wednesday night begins with Druids, and is followed by the Mystic Krewe of Nyx, the newest all-female
+                Krewe.<br> Nyx is
+                famous for their highly decorated purses, and has reached Super Krewe status since their founding in
+                2011. Nyx has
+                plummeted in membership and can no longer hold their self proclaimed status as a super krewe.<br>
+                Thursday night starts off with another all-women's parade featuring the Krewe of Muses. The parade is
+                relatively new,
+                but its membership has tripled since its start in 2001. It is popular for its throws (highly
+                sought-after decorated
+                shoes and other trinkets) and themes poking fun at politicians and celebrities.
+
+                Friday night is the occasion of the large Krewe of Hermes and satirical Krewe D'État parades, ending
+                with one of the
+                fastest-growing krewes, the Krewe of Morpheus. There are several smaller neighborhood parades like the
+                Krewe of
+                Barkus and the Krewe of OAK.<br>
+                Several daytime parades roll on Saturday (including Krewe of Tucks and Krewe of Isis) and on Sunday
+                (Thoth, Okeanos, and
+                Krewe of Mid-City).<br>
+                The first of the "super krewes," Endymion, parades on Saturday night, with the celebrity-led Bacchus
+                parade on Sunday
+                night.
+            </p><br>
+        </div>
+
+        <a href="https://en.wikipedia.org/wiki/Mardi_Gras" id="button">Learn more!</a>
+
+    </section>
+    <br>
+    <div class="bigImage"><img src="img9.jpg" alt="img9"></div>
+    <!--This is cards  -->
+    <script>
+        function webSite(web) {
+            document.location = "https://" + web + ".com";
+
+        }
+    </script>
+
+    <h2 style="text-align:center; font-size: 50px;">Our sponsors</h2>
+    <br>
+    <section>
+        <div class="container">
+            <div class="card">
+                <img src="walkOn's.png" alt="Walk-On's" style="width:100%;height: 115px;">
+                <h1 style="font-size:25px; color:#8CBF3F;font-family: 'Henny Penny';font-weight: bold;">Walk-On's
+                    Bistreaux and Bar</h1>
+                <p>bistreaux and bar</p>
+                <div style="margin: 24px 0;">
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-dribbble"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-twitter"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-facebook"></i></a>
+                </div>
+                <button onclick="webSite('walk-ons')">Show me!</button>
+            </div>
+            <br><br><br><br><br><br>
+            <div class="card">
+                <img src="sheraton.jpg" alt="sheraton" style="width: 100% ;height: 45%;">
+                <h1 style="font-size:25px; color:#8CBF3F;font-family: 'Henny Penny';font-weight: bold;">Sheraton New
+                    Orleans Hotel</h1>
+                <p>Sheraton Hotel</p>
+                <div style="margin: 24px 0">
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-dribbble"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-twitter"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-facebook"></i></a>
+                </div>
+                <button onclick="webSite('csuitesmonroe')">Show me!</button>
+            </div>
+            <br><br><br><br><br><br>
+
+            <div class="card">
+                <img src="ACT_HOTEL.jpg" alt="ACT_HOTEL" style="width:100%">
+                <h1 style="font-size:25px; color:#8CBF3F;font-family: 'Henny Penny';font-weight: bold;">Ace Hotel<br>
+                    New Orleans</h1>
+                <p>Act Hotel</p>
+                <div style="margin: 24px 0">
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-dribbble"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-twitter"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-facebook"></i></a>
+                </div>
+                <button
+                    onclick="webSite('maisondelaluz.com/?gclid=CjwKCAjw4JWZBhApEiwAtJUN0FcpfdFU1fHUfOW6d3Aa0yaI0SRLYkV7Aha1ZK5w8_o2wXDLyUU46BoCsG8QAvD_BwE')">Show
+                    me!</button>
+            </div>
+            <br><br><br><br><br><br>
+
+            <div class="card">
+                <img src="ritz-carlton.jpg" alt="Ritz-Carlton" style="width:100%;height: 45%;">
+                <h1 style="font-size:25px; color:#8CBF3F;font-family: 'Henny Penny';font-weight: bold;">The
+                    Ritz-Carlton, New Orleans</h1>
+                <p>Ritz-Carlton</p>
+                <div style="margin: 24px 0;">
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-dribbble"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-twitter"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-facebook"></i></a>
+                </div>
+                <button onclick="webSite('www.junghotel')">Show me!</button>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+            <div class="card">
+                <img src="primium.jpg" alt="Premium Parking" style="width:100%;height: 115px;">
+                <h1 style="font-size:25px; color:#8CBF3F;font-family: 'Henny Penny';font-weight: bold;">Premium Parking
+                    - P402</h1>
+                <p>Premium Parking</p>
+                <div style="margin: 24px 0;">
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-dribbble"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-twitter"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-facebook"></i></a>
+                </div>
+                <button onclick="webSite('premiumparking')">Show me!</button>
+            </div>
+            <br><br><br><br><br><br>
+
+            <div class="card">
+                <img src="louisiana.jpg" class="imgCard" alt="Louisiana Children's Museum" style="width:100%;height: 115px;">
+                <h1 style="font-size:25px; color:#8CBF3F;font-family: 'Henny Penny';font-weight: bold;">Louisiana
+                    Children's Museum</h1>
+                <p>children's museum</p>
+                <div style="margin: 24px 0;">
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-dribbble"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-twitter"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-facebook"></i></a>
+                </div>
+                <button
+                    onclick="webSite('destrehanplantation.org/?gclid=CjwKCAjw4JWZBhApEiwAtJUN0KJEEuL5t8v-jrHtvIC15t5K0RzeIsqEOTi8--QI_tbUz97yX5J1iBoCGqAQAvD_BwE')">Show
+                    me!</button>
+            </div>
+            <br><br><br><br><br><br>
+
+            <div class="card">
+                <img src="museum.jpg" alt="museum of death" style="width:100%;height: 115px;"><br>
+                <h1 style="font-size:25px; color:#8CBF3F;font-family: 'Henny Penny';font-weight: bold;">Museum of
+                    Death<br><br></h1>
+                <p>Museum of Death</p>
+                <div style="margin: 24px 0;">
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-dribbble"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-twitter"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-facebook"></i></a>
+                </div>
+                <a href="http://www.museumofdeath.net/" class="button">Show me!</a>
+            </div>
+            <br><br><br><br><br><br>
+
+            <div class="card">
+                <img src="haunted.jpg" alt="Haunted Museum" style="width:100%;height: 115px;">
+                <h1 style="font-size:25px; color:#8CBF3F;font-family: 'Henny Penny';font-weight: bold;">Haunted Museum
+                    <br><br>
+                </h1>
+                <p>Haunted Museum</p>
+                <div style="margin: 24px 0;">
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-dribbble"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-twitter"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" style="color:#F2CC0F"><i class="fa fa-facebook"></i></a>
+                </div>
+                <button onclick="webSite('thehauntedmuseum')">Show me!</button>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br>
+    <!-- <div class="footer">
+        <p>&copy 2022, AVIGAIL KATZAV </p>
+
+    </div> -->
+
+    <footer>
+        <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            <h1>&nbsp; copyright &copy; Avigail Katzav, 2022.</h1>
+        </ul>
+
+    </footer>
+</body>
+
+</html>

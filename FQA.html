@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Henny+Penny">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>FAQ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            list-style: none;
+            text-decoration: none;
+            font-family: 'henny penny';
+        }
+
+        body {
+            background-color: #0d0d0d;
+        }
+
+        .topNav {
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(140, 191, 63, 1) 100%);
+            height: 180px;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+
+        }
+
+
+        .topNav nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15%;
+            line-height: 75px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .topNav img {
+            top: 0;
+            width: 150px;
+            height: 100px;
+            left: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        .topNav nav .navbar-brand {
+            color: white;
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: .5px;
+
+        }
+
+        .topNav nav .nav-list .nav-item {
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 0px;
+            transition: .4s;
+            margin: 5px 15px;
+        }
+
+        .topNav nav .nav-list {
+            display: flex;
+            top: 300px;
+        }
+
+        .topNav nav .nav-list .nav-link {
+            color: aliceblue;
+            font-size: 18px;
+            font-weight: 500;
+            color: #0d0d0d;
+
+        }
+
+        @media(max-width: 935px) {
+            .topNav nav {
+                padding: 0 2rem;
+            }
+
+            .topNav nav .nav-list .nav-item {
+                padding: 0 20px;
+            }
+        }
+
+        @media(max-width:675px) {
+            .topNav nav .nav-list {
+                display: grid;
+                position: absolute;
+                background: #0d0d0d;
+                width: 100%;
+                top: 170px;
+                left: 0;
+                z-index: -1;
+                transition: .6s;
+            }
+
+            .topNav nav .nav-list .nav-item {
+                padding-left: 35px;
+            }
+
+            .topNav nav .navbar-toggler {
+                display: grid !important;
+            }
+        }
+
+
+        .topNav nav .navbar-toggler {
+            display: none;
+            height: min-content;
+            margin: 18px -10px 0 0;
+            cursor: pointer;
+        }
+
+        .topNav nav .navbar-toggler .bar {
+            width: 40px;
+            height: 5px;
+            margin-bottom: 10px;
+            background: #ffffff;
+            border-radius: 10%;
+            transition: .4s;
+        }
+
+        /* input {
+            display: none;
+        } */
+
+        input:checked~.topNav nav .nav-list {
+            transform: translateY(0);
+            display: none;
+
+        }
+
+        input:checked~.topNav nav .navbar-toggler {
+            margin-top: 35px;
+        }
+
+        input:checked~.topNav nav .navbar-toggler .bar:nth-child(1) {
+            position: absolute;
+            transform: rotate(45deg);
+        }
+
+        input:checked~.topNav nav .navbar-toggler .bar:nth-child(2) {
+            display: none;
+        }
+
+        input:checked~.topNav nav .navbar-toggler .bar:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .topNav .nav-list .nav-item #active1 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #9453A6;
+        }
+
+        .topNav .nav-list .nav-item #active2 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #8CBF3F;
+        }
+
+        .topNav .nav-list .nav-item #active3 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #F2CC0F;
+        }
+
+        .topNav .nav-list .nav-item #active4 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #8CBF3F;
+        }
+
+        .topNav .nav-list .nav-item #active5 {
+            border: 3px solid #0d0d0d;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #9453A6;
+        }
+
+        /*******************************/
+        .box {
+            margin-top: 240px;
+            width: 410px;
+            height: 150px;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            bottom: 1000px;
+            align-items: center;
+
+        }
+
+        div {
+            font-size: 10pt;
+            width: 400px;
+            margin-bottom: 5px;
+        }
+
+        .question {
+            font-size: 20px;
+            color: #f2f2f2;
+            cursor: pointer;
+            border: 3px solid #f2f2f2;
+            border-radius: 10px;
+            padding: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+            transition: height 2s;
+        }
+
+        .answer {
+            color: #8CBF3F;
+            display: none;
+            font-family: 'henny Penny';
+            text-align: left;
+            padding: 10px 30px;
+        }
+
+        .question:hover .answer {
+            display: block;
+            height: 200px;
+        }
+
+        h3 {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(140, 191, 63, 1) 100%);
+            height: 100px;
+            width: 100%;
+            padding-top: 40px;
+            padding: 20px 0;
+            color: #0d0d0d;
+        }
+
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #0d0d0d;
+        }
+
+        .socials a i {
+            font-size: 1.1rem;
+
+        }
+
+        .socials a:hover i {
+            color: #F2CC0F;
+        }
+
+        .socials p {
+            font-weight: bold;
+        }
+
+        .question .answer ul li {
+            list-style-type: style type;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="toggle">
+    <div class="topNav">
+        <img src="logo.png" alt="logo">
+        <nav>
+
+            <label class="navbar-toggler" for="toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" id="active1" href="project1.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="active2" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="active3" href="media.html">Media</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="active4" href="FQA.html">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="active5" href="contact.html">Contact</a>
+                </li>
+    </div>
+    </ul>
+    </nav>
+
+    <section>
+        <div class="box">
+            <div class="question">What is Mardi Gras?
+                <div class="answer">
+                    Mardi Gras is a holiday that originates from the Christian tradition, which is celebrated in many
+                    Christian communities
+                    around the world, as part of the carnival celebrations.<br> There are places where Mardi Gras has
+                    turned
+                    from a religious
+                    holiday into a secular cultural festival, which includes street parades full of joy.
+                </div>
+            </div>
+            <div class="question">
+                What are 5 facts about Mardi Gras?
+                <div class="answer">
+                    <h3>10 Fun Facts About Mardi Gras</h3>
+                    <ul>
+                        <li>Mardi Gras is always the Tuesday before ash Wednesday.</li>
+                        <li>Mardi Gras marks the end of carnival season.</li>
+                        <li>Mardi Gras is also known as "pancake day"</li>
+                        <li>the official colors of Mardi Gras are purple, gold, and green.</li>
+                        <li>Purple signifies justice, gold means power, and green stands for faith.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="question">
+                Why do they celebrate Mardi Gras?
+                <div class="answer">
+                    Mardi Gras information
+                    Mardi Gras is French for "Fat Tuesday", reflecting the practice of the last night of eating rich,
+                    fatty foods before the ritual Lenten sacrifices and fasting of the Lenten<br> season. Celebrations
+                    in New Orleans,
+                    Louisiana,
+                    U.S.
+                </div>
+            </div>
+            <div class="question">
+                What is the true meaning of Mardi Gras?
+                <div class="answer">
+                    Mardi Gras, (French: Fat Tuesday) festive day celebrated<br> in France on Shrove Tuesday (the
+                    Tuesday
+                    before
+                    Ash Wednesday),
+                    which marks the close of the pre-Lenten season.<br> The French name Mardi Gras means Fat
+                    Tuesday,<br> from
+                    the
+                    custom of using
+                    all the fats in the home before Lent in preparation for fasting and abstinence.
+                </div>
+            </div>
+            <div class="question">
+                What are three facts about Mardi Gras?
+                <div class="answer">
+                    <h3>Mardi Gras Fun Facts</h3>
+                    <ul>
+                        <li> Mardi Gras is more than just a day, it's an entire season.<br> Carnival season begins on
+                            Twelfth
+                            Night
+                            (January 6) <br>and ends
+                            on Fat Tuesday. ...</li>
+                        <li> Mardi Gras Indians' elaborate “suits” are hand-sewn with thousands of beads and take all
+                            year
+                            to make.
+                            ...</li>
+                        <li> Colorful ladders with seats line St.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="question">Why is it called Fat Tuesday?
+                <div class="answer">
+                    It's called Fat Tuesday because it's the last day that many people eat meat and fatty foods before
+                    Lent
+                    begins. Today,
+                    Mardi Gras season in New Orleans is a time of merry-making and festivity.
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <footer>
+        <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            <p>&nbsp; copyright &copy; Avigail Katzav, 2022.</p>
+        </ul>
+
+    </footer>
+</body>
+
+</html>
